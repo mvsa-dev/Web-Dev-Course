@@ -19,3 +19,42 @@ footer {
   color: midnightblue;
 }
 
+
+/*My code*/
+
+/*Add color: midnghtblue to span*/
+span {
+  color: midnightblue;
+}
+
+/*Adjust class to change img size*/ 
+.tile-image {
+  float: left;
+  height: 200px;
+  /*Add left padding to separate img from text*/
+  margin-right: 50px;
+}
+
+.card {
+  width: 45%;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+@media (max-width: 680px) {
+  .card {
+    display: block;
+    width: 100%;
+  }
+
+  .card img {
+    display: inline;
+  }
+
+}
