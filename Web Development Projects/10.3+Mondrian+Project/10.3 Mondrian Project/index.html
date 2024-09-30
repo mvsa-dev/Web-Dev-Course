@@ -19,11 +19,107 @@
     HINT: Remember you can't change the properties of grid lines.
     But grid lines are transparent!
     */
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container {
+      display: grid;
+      grid-template-columns: 320px 198px 153px 50px;
+      grid-template-rows: 414px 130px 155px 20px;
+      gap: 9px;
+      background-color: #000;
+    }
+    
+    .red {
+      grid-column-start: 1;
+      grid-column-end: 2;
+      grid-row-start: 1;
+      grid-row-end: 2;
+      background-color: #E72F24;
+    }
+
+    .blue {
+      grid-column-start: 4;
+      grid-column-end: 5;
+      grid-row-start: 2;
+      grid-row-end: 3;
+      background-color: #004592;
+      border-bottom: 10px #000;
+    }
+
+    .yellow {
+      grid-column-start: 2;
+      grid-column-end: 3;
+      grid-row-start: 4;
+      grid-row-end: 5;
+      background-color: #F9D01E;
+    }
+
+    .black {
+      grid-column-start: 3;
+      grid-column-end: 4;
+      grid-row-start: 4;
+      grid-row-end: 5;
+      background-color: #232629;
+    }
+
+    .wit {
+      background-color: #F0F1EC;
+    }
+
+    .o1 {
+      grid-column-start: 2;
+      grid-column-end: 5;
+      grid-row-start: 1;
+      grid-row-end: 2;
+    }
+
+    .o2 {
+      grid-column-start: 1;
+      grid-column-end: 2;
+      grid-row-start: 2;
+      grid-row-end: 4;
+    }
+
+    .o3 {
+      grid-column-start: 2;
+      grid-column-end: 4;
+      grid-row-start: 2;
+      grid-row-end: 4;
+    }
+
+    .o4 {
+      grid-column-start: 1;
+      grid-column-end: 2;
+      grid-row-start: 4;
+      grid-row-end: 5;
+    }
+
+    .o5 {
+      grid-column-start: 4;
+      grid-column-end: 5;
+      grid-row-start: 3;
+      grid-row-end: 5;
+    }
   </style>
 </head>
 
 <body>
   <!-- Write your HTML here -->
+  <div class="container">
+    <div class="red"></div>
+    <div class="wit o1"></div>
+    <div class="wit o2"></div>
+    <div class="wit o3"></div>
+    <div class="blue"></div>
+    <div class="wit o4"></div>
+    <div class="yellow"></div>
+    <div class="black"></div>
+    <div class="wit o5"></div>
+  </div>
 </body>
 
 </html>
