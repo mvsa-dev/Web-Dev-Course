@@ -5,11 +5,9 @@ function fib(n){
     let num2;
     if (n == 1) {
         fibonacci.push(num);
-        return fibonacci;
     } else if (n == 2) {
         fibonacci.push(num);
         fibonacci.push(num1);
-        return fibonacci;
     } else {
         fibonacci.push(num);
         fibonacci.push(num1);
@@ -20,7 +18,5 @@ function fib(n){
             num1 = fibonacci[fibonacci.length - 1];
         }
         return fibonacci;
-    }   
+    }
 }
-
-fib(7);
