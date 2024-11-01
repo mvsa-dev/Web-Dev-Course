@@ -5,6 +5,7 @@
 What ways of achieving this do you know?*/
 function numToString(num) {
   let str = String(num);
-  console.log(str);
-  
+  return str;
+}
+
 numToString(5);
