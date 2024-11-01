@@ -4,7 +4,7 @@
 -100 --> "-100"
 What ways of achieving this do you know?*/
 function numToString(num) {
-  let str = String(num);
+  let str = num.toString();
   return str;
 }
 
