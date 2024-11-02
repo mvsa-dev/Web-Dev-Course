@@ -1,38 +1,73 @@
 body {
-    height: 100vh;
+  height: 100vh;
 }
 nav {
-    height: 100px;
+  height: 100px;
 }
 
 .navbar-brand {
-    padding: 0;
-    margin: 0;
-}
-
-a img {
-    display: block;
-    height: 50px;
-    width: auto;
-    position: relative;
-    object-fit: inherit;
+  padding: 0;
+  margin: 0;
 }
 
 .navbar-collapse {
-    justify-content: center;
+  justify-content: center;
 }
 .col-sm-8 {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 .col-12 {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 .container-fluid {
-    width: 100%;
-    margin: 0;
-    padding: 0;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.ctrl {
+  font-family: "Outfit", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 900;
+  font-style: normal;
+  font-size: xx-large;
+}
+
+.heroText {
+  font-family: "Outfit", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 900;
+  font-style: normal;
+}
+
+.ctrlPeriod {
+  color: deepskyblue;
+  font-family: "Outfit", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 900;
+  font-style: normal;
+  font-size: xx-large;
+}
+
+.deepSkyBlueButton {
+  background-color: deepskyblue;
+  border-color: whitesmoke;
+  font-family: "Outfit", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.resumeBtn {
+  background-color: deepskyblue;
+  border-color: whitesmoke;
+  border-radius: 5px;
+  font-family: "Outfit", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
 }
