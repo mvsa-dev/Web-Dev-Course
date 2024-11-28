@@ -18,4 +18,4 @@ function divide(num1, num2) {
   return num1 / num2;
 }
 
-console.log(calculator(1, 3, multiply));
+calculator(1, 3, multiply);
