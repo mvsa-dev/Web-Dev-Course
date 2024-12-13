@@ -5,6 +5,7 @@ for (var i = 0; i < numberOfButtons; i++) {
 
 function playAudio() {
   let buttonInnerHtml = this.innerHTML;
+  buttonAnimate(buttonInnerHtml);
   switch (buttonInnerHtml) {
     case "w":
       let tom1 = new Audio("./sounds/tom-1.mp3");
@@ -45,6 +46,7 @@ document.addEventListener("keydown", keyAudio);
 
 function keyAudio(event) {
   let key = event.key;
+  buttonAnimate(event.key);
   switch (key) {
     case "w":
       let tom1 = new Audio("./sounds/tom-1.mp3");
@@ -77,4 +79,12 @@ function keyAudio(event) {
     default:
       break;
   }
+}
+
+function buttonAnimate(currentKey) {
+  let activeButton = document.querySelector("." + currentKey);
+  activeButton.classList.add("pressed");
+  setTimeout(function () {
+    activeButton.classList.remove("pressed");
+  }, 200);
 }
