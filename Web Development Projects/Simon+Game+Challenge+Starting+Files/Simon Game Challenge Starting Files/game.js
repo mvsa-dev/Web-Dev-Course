@@ -1,48 +1,103 @@
-//Array gamePattern to store the game pattern
+// Initialize variables and arrays
 let gamePattern = [];
-//Array userPattern to store the user pattern
 let userPattern = [];
-//function nextSequence to generate next color and add it to the gamePattern array
-$(document).keydown(launchGame);
-// Functions
+let levelCount = 0;
+let buttonColours = ["red", "blue", "green", "yellow"];
+// Game State
+const gameState = {
+  idle: "IDLE",
+  playing: "PLAYING",
+  gameEnd: "GAME_END",
+};
+let currentState = gameState.idle;
+
+// Start Game
+if (currentState === gameState.idle) {
+  $(document).keydown(gameStart);
+}
+function gameStart() {
+  // Game initialization
+  levelCount++;
+  $("h1").html("Level " + levelCount);
+  setTimeout(nextSequence, 200);
+  currentState = gameState.playing;
+  enableButtons();
+}
+
+// Enables Click function
+function enableButtons() {
+  if (currentState === gameState.playing) {
+    $(".btn").on("click", userClick);
+  }
+}
+// Disables Click function
+function disableButtons() {
+  $(".btn").off("click", userClick);
+}
+
+function userClick(event) {
+  let userChosenColour = $(event.target).attr("id");
+  userPattern.push(userChosenColour);
+  playSound(userChosenColour);
+  animatePress(userChosenColour);
+  if (gamePattern.length === userPattern.length) {
+    //Sequences are compared each time a color is clicked instead of compaering after user has completed clicking
+    compareSequence(gamePattern, userPattern);
+  }
+}
+
+//Game Over
+function gameOver() {
+  $("h1").html("Game Over, Press Any Key to Restart");
+  $("body").addClass("game-over");
+  setTimeout(function () {
+    $("body").removeClass("game-over");
+  }, 100);
+  playSound("wrong");
+  gamePattern = [];
+  disableButtons();
+  levelCount = 0;
+}
+
+// Generate next Sequence
 function nextSequence() {
+  userPattern = [];
   let randomNumber = Math.floor(Math.random() * 4);
-  let buttonColours = ["red", "blue", "green", "yellow"];
   let randomChosenColour = buttonColours[randomNumber];
-  //add the randomChosenColour to the gamePattern array
   gamePattern.push(randomChosenColour);
-  //flash the button with the randomChosenColour
+  playSound(randomChosenColour);
+  // Game animation
   $("#" + randomChosenColour)
     .fadeIn(100)
     .fadeOut(100)
     .fadeIn(100);
-  //play the sound with the randomChosenColour
-  playSound(randomChosenColour);
+
+  $("h1").html("Level " + levelCount);
 }
 
-function launchGame() {
-  nextSequence();
-  userClick();
+// Compare sequences
+function compareSequence(arr1, arr2) {
+  // Then, compare each element in the arrays
+  for (let i = 0; i < arr1.length; i++) {
+    if (arr1[i] !== arr2[i]) {
+      return gameOver();
+    }
+  }
+  // If we reached here, the arrays are identical
+  levelCount++;
+  setTimeout(nextSequence, 1000);
 }
 
-function gameLevel() {
-  let level = gamePattern.length + 1;
-  $("h1").text("Level " + level);
+// User click Animation
+function animatePress(currentColour) {
+  $("#" + currentColour).addClass("pressed");
+  setTimeout(function () {
+    $("#" + currentColour).removeClass("pressed");
+  }, 100);
 }
 
-function startText() {
-  $("h1").text("Press A Key to Start");
-}
-
-function playSound(randomChosenColour) {
-  let audio = new Audio("sounds/" + randomChosenColour + ".mp3");
+// Generate Sound
+function playSound(name) {
+  let audio = new Audio("sounds/" + name + ".mp3");
   audio.play();
-}
-
-function userClick() {
-  $(".btn").click(userInput);
-}
-
-function userInput(event) {
-  console.log(event);
 }
