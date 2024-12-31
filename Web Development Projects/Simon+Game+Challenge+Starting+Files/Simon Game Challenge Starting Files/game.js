@@ -17,8 +17,6 @@ if (currentState === gameState.idle) {
 }
 function gameStart() {
   // Game initialization
-  levelCount++;
-  $("h1").html("Level " + levelCount);
   setTimeout(nextSequence, 200);
   currentState = gameState.playing;
   enableButtons();
@@ -40,9 +38,22 @@ function userClick(event) {
   userPattern.push(userChosenColour);
   playSound(userChosenColour);
   animatePress(userChosenColour);
+  //Sequences are compared each time a color is clicked instead of compaering after user has completed clicking
+  compareSequence(gamePattern, userPattern);
+}
+
+// Compare sequences
+function compareSequence(arr1, arr2) {
+  const currentLength = arr2.length;
+  // Then, compare each element in the arrays
+  for (let i = 0; i < arr2.length; i++) {
+    if (arr1[i] !== arr2[i]) {
+      return gameOver();
+    }
+  }
+  // If we reached here, the arrays are identical
   if (gamePattern.length === userPattern.length) {
-    //Sequences are compared each time a color is clicked instead of compaering after user has completed clicking
-    compareSequence(gamePattern, userPattern);
+    setTimeout(nextSequence, 1000);
   }
 }
 
@@ -61,6 +72,7 @@ function gameOver() {
 
 // Generate next Sequence
 function nextSequence() {
+  levelCount++;
   userPattern = [];
   let randomNumber = Math.floor(Math.random() * 4);
   let randomChosenColour = buttonColours[randomNumber];
@@ -71,21 +83,7 @@ function nextSequence() {
     .fadeIn(100)
     .fadeOut(100)
     .fadeIn(100);
-
   $("h1").html("Level " + levelCount);
-}
-
-// Compare sequences
-function compareSequence(arr1, arr2) {
-  // Then, compare each element in the arrays
-  for (let i = 0; i < arr1.length; i++) {
-    if (arr1[i] !== arr2[i]) {
-      return gameOver();
-    }
-  }
-  // If we reached here, the arrays are identical
-  levelCount++;
-  setTimeout(nextSequence, 1000);
 }
 
 // User click Animation
