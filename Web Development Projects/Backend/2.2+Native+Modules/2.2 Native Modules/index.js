@@ -1,5 +1,3 @@
-const { ifError } = require("assert");
-const { clear } = require("console");
 const fs = require("fs");
 
 /*fs.writeFile("message.txt", "Trust in the Lord!", (err) => {
