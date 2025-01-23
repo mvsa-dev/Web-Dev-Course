@@ -11,10 +11,12 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.post("/submit", (req, res) => {
   console.log(req.body);
+  res.send(console.log("201"));
 });
 
 app.get("/", (req, res) => {
   res.sendFile(__dirname + "/public/index.html");
+  res.send(console.log("200"));
 });
 
 app.listen(port, () => {
