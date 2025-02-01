@@ -5683,7 +5683,7 @@ app.get("/", (req, res) => {
   //Step 1 - Make the get route work and render the index.ejs file.
   res.render("index.ejs", {
     year: new Date().getFullYear(),
-    adno: false,
+    //adno: false,
   });
 });
 
@@ -5701,7 +5701,7 @@ app.post("/submit", (req, res) => {
   res.render("index.ejs", {
     adjective: randomAdjective,
     nouns: randomNoun,
-    adno: true,
+    //adno: true,
     year: new Date().getFullYear(),
   });
 });

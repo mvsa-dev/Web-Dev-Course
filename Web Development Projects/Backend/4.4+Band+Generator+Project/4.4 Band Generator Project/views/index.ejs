@@ -9,7 +9,8 @@
   
     Show the default h1 below -->
 
-    <% if (adno) { %>
+    <% if (locals.adjective && locals.nouns/* you could also use adno here*/) {
+    %>
     <h1><%= adjective + " " + nouns %></h1>
 
     <% } else { %>
