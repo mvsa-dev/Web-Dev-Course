@@ -1,46 +1,46 @@
-body {
-  background: #222;
-  font-family: "Press Start 2P", serif;
-  font-weight: 200;
-  font-style: normal;
-  color: hotpink;
-}
-
-main {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  text-align: center;
-}
-
-h1 {
-  font-size: 3.5rem;
-}
-
-input {
-  appearance: none;
-  -webkit-appearance: none;
-  border: 0;
-  font-size: 0.9rem;
-  background: #888;
-  padding: 1rem;
-  color: white;
-  cursor: pointer;
-}
-
-footer {
-  position: absolute;
-  bottom: 0;
-}
-
-.press-start-2p-regular {
+.logo {
   font-family: "Press Start 2P", serif;
   font-weight: 400;
   font-style: normal;
+}
+
+html,
+body {
+  height: 100vh;
+}
+section {
+  max-width: 80%;
+  margin: 0 auto;
+}
+
+footer {
+  background-color: aquamarine;
+}
+
+button {
+  margin-top: 15px;
+  padding: 10px 20px;
+}
+
+form {
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+label {
+  display: block;
+  margin-top: 15px;
+}
+
+input[type="text"],
+textarea {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+  margin-top: 5px;
+}
+
+button {
+  margin-top: 15px;
+  padding: 10px 20px;
 }

@@ -2,8 +2,33 @@
 <html lang="en">
   <%- include('partials/header.ejs') %>
   <body>
-    <!--Add content from here-->
+    <section>
+      <h1>Spreading Humours</h1>
+      <p>A Podcast and Chill Network Production.</p>
+    </section>
+    <section>
+      <form action="/submit" method="POST">
+        <textarea
+          id="content"
+          name="content"
+          rows="5"
+          placeholder="What's on your mind?"
+          required
+        ></textarea>
+        <button type="submit">Comment</button>
+      </form>
+    </section>
+    <section>
+      <% if (showH) { %>
+      <h1>No Comments.</h1>
 
-    <%- include('partials/footer.ejs') %>
+      <% } else { %>
+      <!-- Show the result -->
+      <h1><%= userComment %></h1>
+      <button type="submit">Delete</button>
+      <% } %>
+    </section>
+
+    <section><%- include('partials/footer.ejs') %></section>
   </body>
 </html>
