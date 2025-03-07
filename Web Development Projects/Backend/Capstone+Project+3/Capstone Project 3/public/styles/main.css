@@ -1,46 +1,204 @@
-.logo {
+/* Universal Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Remove default list styles */
+ul,
+ol {
+  list-style: none;
+}
+
+/* Reset links */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Reset form elements */
+button,
+input,
+textarea {
+  font-family: inherit;
+  border: none;
+  outline: none;
+  background: none;
+}
+
+/* Remove default table spacing */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* Ensure full height */
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+/* Flex container */
+.flex-container {
+  display: flex;
+  flex-direction: column; /* Stack elements vertically */
+  align-items: center; /* Center items horizontally */
+  justify-content: space-between; /* Space between header, main, and footer */
+  height: 100vh; /* Full viewport height */
+  min-height: 100vh; /* Ensures it spans the full viewport */
+  background-color: #f4f4f4;
+}
+
+/* container */
+.container {
+  width: 100%; /* or a fixed width like 960px, depending on your design */
+  height: 100%;
+  margin: 0 auto; /* Centers the container horizontally */
+  padding: 0 20px; /* Adds some padding on the sides */
+  display: flex; /* Enables flexbox layout */
+  flex: 1;
+  justify-content: space-evenly; /* Distributes space evenly between items */
+  align-items: center; /* Vertically aligns items in the center */
+}
+
+.container .nav-items {
+  width: 100%; /* or a fixed width like 960px, depending on your design */
+  height: 100%;
+  margin: 0 auto; /* Centers the container horizontally */
+  padding: 0 20px; /* Adds some padding on the sides */
+  display: flex; /* Enables flexbox layout */
+  justify-content: space-evenly; /* Distributes space evenly between items */
+  align-items: center; /* Vertically aligns items in the center */
+  flex: 1;
+}
+/* Header, Main, and Footer */
+.header,
+.main,
+.footer {
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+  font-size: 1.5rem;
+}
+
+/* Different section styles */
+.header {
+  background-color: #0d161c;
+  color: #f4f4f4;
+}
+
+.main {
+  background-color: #f4f4f4;
+  flex: 1;
+  display: flex;
+  max-width: 1800px;
+  align-items: flex-start;
+  justify-content: space-evenly;
+  color: #0d161c;
+}
+
+.footer {
+  background-color: #0d161c;
+  color: #f4f4f4;
+}
+
+/* Fonts */
+.press-start-2p-regular {
   font-family: "Press Start 2P", serif;
   font-weight: 400;
   font-style: normal;
+  vertical-align: middle; /* Align text vertically */
 }
 
-html,
-body {
-  height: 100vh;
-}
-section {
-  max-width: 80%;
-  margin: 0 auto;
-}
-
-footer {
-  background-color: aquamarine;
+.oswald-nav {
+  font-family: "Oswald", serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+  font-size: medium;
 }
 
-button {
-  margin-top: 15px;
-  padding: 10px 20px;
+.oswald-logo {
+  font-family: "Oswald", serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+  vertical-align: middle; /* Align text vertically */
 }
 
-form {
-  max-width: 100%;
-  margin: 0 auto;
+.oswald-main {
+  font-family: "Oswald", sans-serif;
+  margin: 20px;
 }
 
-label {
-  display: block;
-  margin-top: 15px;
+div.container .logo {
+  display: flex;
+  flex: 2;
+  justify-content: flex-start;
 }
 
-input[type="text"],
-textarea {
-  width: 100%;
-  padding: 8px;
-  box-sizing: border-box;
-  margin-top: 5px;
+span.oswald-logo {
+  height: 36px;
 }
 
-button {
-  margin-top: 15px;
-  padding: 10px 20px;
+/* Style the logo */
+.logo {
+  display: flex;
+  align-items: center; /* Vertically align items in the center */
+}
+
+.nav-items {
+  width: 100px;
+}
+
+.hero-container {
+  background-color: #f4f4f4;
+  flex: 1;
+  flex-wrap: wrap;
+  display: flex;
+  align-items: flex-start;
+  gap: 80px;
+  justify-content: space-evenly;
+  color: #0d161c;
+  margin-top: 50px;
+}
+
+.form-container {
+  display: flex;
+  flex: 2;
+  background-color: #0d161c;
+  color: #f4f4f4;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 200px;
+  height: 300px;
+  border: 10px #f4f4f4;
+  border-radius: 10px;
+}
+
+.post-container {
+  display: flex;
+  flex: 1;
+  background-color: #0d161c;
+  color: #f4f4f4;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 250px;
+  height: 750px;
+  border-radius: 10px;
+}
+
+@media (max-width: 1100px) {
+  .hero-container {
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items horizontally */
+  }
+
+  .form-container,
+  .post-container {
+    width: 80%; /* Adjust width as needed */
+    margin-bottom: 20px; /* Add some spacing between the items */
+  }
 }
