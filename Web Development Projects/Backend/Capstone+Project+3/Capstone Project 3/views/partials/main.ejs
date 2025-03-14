@@ -1,6 +1,51 @@
-<main class="main oswald-main">
-  <div class="hero-container">
-    <div class="form-container">Form</div>
-    <div class="post-container">Posts</div>
+<main>
+  <div class="container-fluid">
+    <!--Input-->
+    <!--Input heading-->
+    <div class="row mb-3">
+      <div class="col">
+        <span class="press-start-2p-font">What's On Your Mind?</span>
+      </div>
+    </div>
+    <!--Input textbox-->
+    <div class="row mb-5">
+      <div class="col-2"></div>
+      <div class="col-8">
+        <textarea
+          type="text"
+          class="form-control"
+          maxlength="300"
+          oninput="this.style.height = 'auto'; this.style.height = (this.scrollHeight) + 'px';"
+        ></textarea>
+        <button type="submit" class="btn btn-dark mt-3">Post</button>
+      </div>
+      <div class="col-2"></div>
+    </div>
+
+    <!--Cards-->
+    <!--Cards heading-->
+    <div class="row mb-3">
+      <div class="col">
+        <span class="press-start-2p-font">What's On Our Mind!</span>
+      </div>
+    </div>
+    <!--Cards box-->
+    <div class="row mb-5">
+      <div class="col-2"></div>
+      <div class="col-8">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">y/username</h5>
+            <p class="card-text">
+              Some quick example text to build on the card title and make up the
+              bulk of the card's content.
+            </p>
+            <button type="delete" class="btn btn-dark mt-2">Modify</button>
+            <button type="delete" class="btn btn-dark mt-2">Remove</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-2"></div>
+    </div>
   </div>
 </main>
