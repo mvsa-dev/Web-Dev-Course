@@ -3,23 +3,22 @@ import bodyParser from "body-parser";
 
 const app = express();
 const port = 3000;
-let postData = []; // Stores user posts in an array of objects.
 
 app.use(express.static("public"));
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get("/", (req, res) => {
-  let blogPost = "";
   res.render("index.ejs", {
-    userComment: blogPost,
+    year: new Date().getFullYear(),
   });
 });
 
 app.post("/submit", (req, res) => {
-  let blogPost = req.body.content;
+  let postData = req.body.ypost;
   res.render("index.ejs", {
-    userComment: blogPost,
+    userPost: postData,
+    year: new Date().getFullYear(),
   });
 });
 
