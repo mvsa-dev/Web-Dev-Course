@@ -33,35 +33,23 @@
         <span class="press-start-2p-font">The Yon Mind!</span>
       </div>
     </div>
-    <!--Cards box-->
+    <!--Card box-->
     <div class="row mb-5">
       <div class="col-2"></div>
       <div class="col-8">
-        <% if (locals.userPost) {%>
-
-
-
-
-
-
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">y/username</h5>
-    
-              <p class="card-text">
-                <%= userPost %>
-              </p>
-              <button type="delete" class="btn btn-dark mt-2">Modify</button>
-              <button type="delete" class="btn btn-dark mt-2">Remove</button>
+        <% if (locals.posts && posts.length > 0) {%>
+          <% posts.forEach(function(post) { %>
+            <div class="card mb-3">
+              <div class="card-body">
+                <h5 class="card-title">y/username</h5>
+                <p class="card-text">
+                  <%= post %>
+                </p>
+                <button type="button" class="btn btn-dark mt-2">Modify</button>
+                <button type="button" class="btn btn-dark mt-2">Remove</button>
+              </div>
             </div>
-          </div>
-
-
-
-
-
-
-
+          <% }); %>
       <% } else { %>
           <span class="oswald-font">Nothing here yet!</span>
       <% } %>

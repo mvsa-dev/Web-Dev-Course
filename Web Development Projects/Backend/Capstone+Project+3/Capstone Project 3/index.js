@@ -3,21 +3,25 @@ import bodyParser from "body-parser";
 
 const app = express();
 const port = 3000;
+let posts = [];
 
 app.use(express.static("public"));
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get("/", (req, res) => {
+  posts = [];
   res.render("index.ejs", {
+    posts: posts,
     year: new Date().getFullYear(),
   });
 });
 
 app.post("/submit", (req, res) => {
-  let postData = req.body.ypost;
+  let post = req.body.ypost;
+  posts.push(post);
   res.render("index.ejs", {
-    userPost: postData,
+    posts: posts,
     year: new Date().getFullYear(),
   });
 });
