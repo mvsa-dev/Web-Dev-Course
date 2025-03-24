@@ -14,7 +14,6 @@
         <form action="/submit" method="post">
           <textarea
           name="ypost"
-          type="submit"
           type="text"
           class="form-control"
           maxlength="300"
@@ -38,15 +37,38 @@
       <div class="col-2"></div>
       <div class="col-8">
         <% if (locals.posts && posts.length > 0) {%>
-          <% posts.forEach(function(post) { %>
-            <div class="card mb-3">
+          <% posts.forEach(function(post, index) { %>
+            <div id="post-<%= index %>" class="card mb-3">
               <div class="card-body">
                 <h5 class="card-title">y/username</h5>
-                <p class="card-text">
-                  <%= post %>
-                </p>
-                <button type="button" class="btn btn-dark mt-2">Modify</button>
-                <button type="button" class="btn btn-dark mt-2">Remove</button>
+
+                <% if (locals.modPost) {%>
+                  <form action="/modified" method="post" style="display: inline-block; width: 100%;">
+                    <textarea name="postMod" type="text" class="form-control mb-2" style="display: inline-block;" maxlength="300" oninput="this.style.height = 'auto'; this.style.height = (this.scrollHeight) + 'px';"></textarea>
+                    <input type="hidden" name="index" value="<%= index %>">
+                    <button type="submit" class="btn btn-dark mr-2">Modify</button>
+                    <form action="/delete" method="post" style="display: inline-flex;">  
+                      <input type="hidden" name="index" value="<%= index %>">
+                      <button type="submit" class="btn btn-dark mt-0 mx-1">Remove</button> 
+                    </form>
+                  </form>
+                 
+                <%} else {%>
+                  <p class="card-text">
+                    <%= post %>
+                  </p>
+                  <form action="/modify" method="post" style="display: inline-flex;">
+                    <input type="hidden" name="index" value="<%= index %>">
+                    <button type="submit" class="btn btn-dark mt-2">Modify</button>
+                  </form>
+                  <form action="/delete" method="post" style="display: inline-flex;">  
+                    <input type="hidden" name="index" value="<%= index %>">
+                    <button type="submit" class="btn btn-dark mt-0 mx-1">Remove</button> 
+                  </form>
+                <%};%>
+                
+
+                
               </div>
             </div>
           <% }); %>

@@ -10,7 +10,6 @@ app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get("/", (req, res) => {
-  posts = [];
   res.render("index.ejs", {
     posts: posts,
     year: new Date().getFullYear(),
@@ -26,8 +25,36 @@ app.post("/submit", (req, res) => {
   });
 });
 
-app.delete("/delete", (req, res) => {
-  res.render("index.ejs", {});
+app.post("/modify", (req, res) => {
+  let modPost = true;
+  res.render("index.ejs", {
+    posts: posts,
+    year: new Date().getFullYear(),
+    modPost: modPost,
+  });
+});
+
+app.post("/modified", (req, res) => {
+  const postMod = req.body.postMod;
+  const index = parseInt(req.body.index, 10);
+  let modPost = false;
+  if (!isNaN(index) && index < posts.length) {
+    posts.splice(index, 1, postMod);
+  }
+
+  res.render("index.ejs", {
+    posts: posts,
+    year: new Date().getFullYear(),
+    modPost: modPost,
+  });
+});
+
+app.post("/delete", (req, res) => {
+  const index = parseInt(req.body.index, 10);
+  if (!isNaN(index) && index < posts.length) {
+    posts.splice(index, 1);
+  }
+  res.redirect("/");
 });
 
 app.listen(port, () => {
