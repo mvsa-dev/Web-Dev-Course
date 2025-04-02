@@ -4,9 +4,11 @@
 // Generate a chromosome with length of 4 generate(4) could return the chromosome 0010, 1110, 1111... or any of 2^4 possibilities.
 
 const generate = (length) => {
+  let chromosomes = "";
   for (let i = 0; i < length; i++) {
     let randomNum = Math.round(Math.random());
-    console.log(randomNum.toString());
+    chromosomes += randomNum;
   }
+  return chromosomes;
 };
 generate(4);
